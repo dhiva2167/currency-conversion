@@ -1,1 +1,3 @@
 openexchangerates.app-id=your_app_id_here
+
+spring.mongodb.uri=mongodb+srv://YOUR_USERNAME:YOUR_PASSWORD@conversion.fwndu50.mongodb.net/currencydb?retryWrites=true&w=majority
