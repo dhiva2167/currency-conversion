@@ -7,7 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ConversionHistory {
 
        public ConversionHistory(String from , String to , double rateUsed,double originAmount,double convertedAmount)
-       {
+       {    
+            this.from = from;
+            this.to = to;
             this.convertedAmount = convertedAmount;
             this. originAmount =  originAmount;
             this.rateUsed = rateUsed;
