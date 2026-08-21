@@ -5,7 +5,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "conversion_history")
 public class ConversionHistory {
-        
+
+       public ConversionHistory(String from , String to , double rateUsed,double originAmount,double convertedAmount)
+       {
+            this.convertedAmount = convertedAmount;
+            this. originAmount =  originAmount;
+            this.rateUsed = rateUsed;
+       }
         @Id
         private String id;
         private String from;

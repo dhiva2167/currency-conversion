@@ -4,7 +4,6 @@ public class ConversionResponse {
     
    private String from;
    private String to;
-    
    private double originAmount;
    private double convertedAmount;
    private double rateUsed;
