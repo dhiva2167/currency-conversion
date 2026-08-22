@@ -6,3 +6,4 @@ import project.currency_conversion.dto.ConversionRequest;
 public interface CurrencyService {
     ConversionResponse convert(ConversionRequest request);
 }
+

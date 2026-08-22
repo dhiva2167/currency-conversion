@@ -18,7 +18,6 @@ public class CurrencyServiceImpl implements CurrencyService {
 
   public CurrencyServiceImpl(ExchangeRateClient exchangeRateClient , ConversionHistoryRepository conversionHistoryRepository ) {
    
-    
     this.exchangeRateClient = exchangeRateClient;
     this.conversionHistoryRepository = conversionHistoryRepository;
   }
