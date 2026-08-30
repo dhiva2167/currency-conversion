@@ -6,5 +6,7 @@ import project.currency_conversion.document.User;
 public interface AuthService {
   
    User register(User user);
+
+   String login(User user);
   
 } 
