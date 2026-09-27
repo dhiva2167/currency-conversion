@@ -2,15 +2,16 @@ package project.currency_conversion.dto;
 
 import project.currency_conversion.dto.ExchangeRateApiResponse;
 import java.util.Map;
+import java.io.Serializable;
 
-public class ExchangeRateApiResponse {
+public class ExchangeRateApiResponse implements Serializable {
     private String base;
     private String disclaimer;
     private long timestamp;
     private Map<String, Double> rates;
     private String license;
 
-    // Getters and setters
+    
     public String getLicense() {
         return license;
     }

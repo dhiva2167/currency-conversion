@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.beans.factory.annotation.Value;
 import project.currency_conversion.dto.ExchangeRateApiResponse;
+import org.springframework.cache.annotation.Cacheable;
 
 @Component
 public class ExchangeRateClient {
@@ -18,6 +19,7 @@ public class ExchangeRateClient {
     @Value("${openexchangerates.app-id}")
     private String appId;
 
+    @Cacheable("exchangeRates")
     public ExchangeRateApiResponse getRates() {
         ExchangeRateApiResponse response = webClient.get()
                 .uri(uriBuilder -> uriBuilder
