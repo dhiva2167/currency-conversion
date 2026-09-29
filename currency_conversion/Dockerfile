@@ -2,15 +2,12 @@
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 
-# Copy maven wrapper and pom.xml first for layer caching
+# Copy maven wrapper and pom.xml first
 COPY .mvn/ .mvn/
 COPY mvnw pom.xml ./
-RUN chmod +x mvnw
+RUN sed -i 's/\r$//' mvnw && chmod +x mvnw
 
-# Download dependencies (offline cache layer)
-RUN ./mvnw dependency:go-offline -B || true
-
-# Copy source code and package application
+# Copy source and build package
 COPY src/ src/
 RUN ./mvnw clean package -DskipTests
 
@@ -18,10 +15,8 @@ RUN ./mvnw clean package -DskipTests
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-# Copy built jar from build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Dynamic port assignment for Render ($PORT)
 ENV PORT=8080
 EXPOSE 8080
 

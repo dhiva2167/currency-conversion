@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: currency-backend
+    runtime: docker
+    dockerfilePath: ./currency_conversion/Dockerfile
+    dockerContext: ./currency_conversion
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
