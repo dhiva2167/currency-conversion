@@ -15,14 +15,14 @@ function Converter() {
   const [copied, setCopied] = useState(false);
   const [isSwapping, setIsSwapping] = useState(false);
 
-  // Conversion History
+  
   const [history, setHistory] = useState([]);
   const [historyLoading, setHistoryLoading] = useState(false);
 
-  // Supported Currencies list
+  
   const [currencyOptions, setCurrencyOptions] = useState(CURRENCIES);
 
-  // Fetch supported currencies & history on mount
+ 
   useEffect(() => {
     fetchSupportedCurrencies();
     fetchHistory();
@@ -40,7 +40,7 @@ function Converter() {
         }
       }
     } catch {
-      // Fallback to local currency list if API is warming up
+      
     }
   };
 
@@ -55,7 +55,7 @@ function Converter() {
         }
       }
     } catch {
-      // Silent catch on init
+      
     } finally {
       setHistoryLoading(false);
     }
@@ -125,7 +125,7 @@ function Converter() {
   return (
     <div className={`page-wrapper ${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}>
       <div className="app-container">
-        {/* Header bar */}
+       
         <header className="app-header">
           <div className="brand">
             <span className="brand-logo">💱</span>
@@ -144,10 +144,10 @@ function Converter() {
           </button>
         </header>
 
-        {/* Main Card */}
+       
         <main className="converter-card">
           <form onSubmit={handleConvert} className="converter-form" id="conversion-form">
-            {/* Amount Section */}
+    
             <div className="field-group">
               <div className="field-header">
                 <label htmlFor="amount-input" className="field-label">Amount</label>
@@ -168,7 +168,7 @@ function Converter() {
                 />
                 <span className="amount-code">{from}</span>
               </div>
-              {/* Quick Amount Chips */}
+             
               <div className="chips-row" aria-label="Quick amount presets">
                 {QUICK_AMOUNTS.map((amt) => (
                   <button
@@ -183,9 +183,9 @@ function Converter() {
               </div>
             </div>
 
-            {/* Currencies Section */}
+          
             <div className="currencies-container">
-              {/* From currency */}
+            
               <div className="currency-field">
                 <label htmlFor="from-select" className="field-label">From</label>
                 <div className="select-box">
@@ -205,7 +205,7 @@ function Converter() {
                 </div>
               </div>
 
-              {/* Swap Action */}
+             
               <div className="swap-action">
                 <button
                   type="button"
@@ -220,7 +220,7 @@ function Converter() {
                 </button>
               </div>
 
-              {/* To currency */}
+              
               <div className="currency-field">
                 <label htmlFor="to-select" className="field-label">To</label>
                 <div className="select-box">
@@ -241,7 +241,7 @@ function Converter() {
               </div>
             </div>
 
-            {/* Convert Button */}
+            
             <button
               type="submit"
               id="convert-submit-btn"
@@ -252,7 +252,7 @@ function Converter() {
             </button>
           </form>
 
-          {/* Error Message */}
+          
           {error && (
             <div className="error-box" role="alert">
               <span>⚠️</span>
@@ -260,7 +260,7 @@ function Converter() {
             </div>
           )}
 
-          {/* Result Card */}
+          
           {result && (
             <div className="result-card" id="conversion-result">
               <div className="result-top">
@@ -293,7 +293,7 @@ function Converter() {
           )}
         </main>
 
-        {/* History Section */}
+       
         <section className="history-section" aria-labelledby="history-title">
           <div className="history-header">
             <div>
@@ -332,7 +332,7 @@ function Converter() {
           )}
         </section>
 
-        {/* Clean Footer */}
+     
         <footer className="app-footer">
           <p>Currency Converter • Built with Spring Boot & React</p>
           <p className="footer-sub">Rates provided by Open Exchange Rates</p>
